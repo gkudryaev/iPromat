@@ -1,0 +1,6 @@
+framework module Pods_iPromatSwift {
+  umbrella header "Pods-iPromatSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}

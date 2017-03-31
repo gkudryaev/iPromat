@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "Item.tableView(UITableView, numberOfRowsInSection : Int) -&gt; Int:Item.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "catalog?.lvl3Selected?.items.count">
+            </PersistentString>
+            <PersistentString
+               value = "catalog">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewOrderAddressVC.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:NewOrderAddressVC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "UserData.save() -&gt; ():UserData.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "fname">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UserData.save(json : [String : Any]) -&gt; ():UserData.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "is_elevator">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Catalog.Item.init(json : Any) -&gt; Catalog.Item?:Catalog.swift">
+      </ContextState>
+      <ContextState
+         contextName = "LogonConfirmVC.confirmPressed(AnyObject) -&gt; ():LogonConfirmVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "AppModule.sharedInstance.userData">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LogonConfirmVC.newCustomer() -&gt; ():LogonConfirmVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserDefaults.standard.set">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Catalog.Category.init(json : Any, lvl : Int) -&gt; Catalog.Category?:Catalog.swift">
+      </ContextState>
+      <ContextState
+         contextName = "OrdersVC.tableView(UITableView, numberOfRowsInSection : Int) -&gt; Int:OrdersVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sections[section]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CatalogNB.textFieldShouldBeginEditing(UITextField) -&gt; Bool:CatalogNB.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "vc.description">
+            </PersistentString>
+            <PersistentString
+               value = "vc as Category">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewOrderPC.pageViewController(UIPageViewController, didFinishAnimating : Bool, previousViewControllers : [UIViewController], transitionCompleted : Bool) -&gt; ():NewOrderPC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "NewOrderPC.nextPage() -&gt; ():NewOrderPC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "currentIndex">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewOrderConfirmVC.orderLines() -&gt; [String : String]:NewOrderConfirmVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "order.itemImage">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Category.searchItem(segue : UIStoryboardSegue) -&gt; ():Category.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "isSegueItem">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewOrderPC.pageViewController(UIPageViewController, viewControllerAfter : UIViewController) -&gt; UIViewController?:NewOrderPC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "vc.datePickerView.selectedRow(inComponent: 0)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Menu.saveOption(segue : UIStoryboardSegue) -&gt; ():Menu.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "userData">
+            </PersistentString>
+            <PersistentString
+               value = "segue.source.childViewControllers">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewOrderVC.continuePressed(Any) -&gt; ():NewOrderVC.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
