@@ -97,6 +97,36 @@ class JsonHelper {
         }
     }
     
+    class func sendSMS (phone: String, text: String) {
+        
+        let configuration = URLSessionConfiguration.default
+        let session = URLSession(configuration:configuration)
+        
+        let str = "https://gate.smsaero.ru/send/?user=gregory.kdr@gmail.com&password=CRj67YGK4E5LNmu5yqE0usl7x8B&to=\(phone)&text=\(text)&from=news"
+        let url = URL(string:str)
+        let request = NSMutableURLRequest(url: url!)
+        
+        request.httpMethod = "GET"
+        
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let loadDataTask = session.dataTask(with: request as URLRequest) {
+            (data: Data?, response: URLResponse?, error: Error?) -> Void in
+            
+            DispatchQueue.main.async {
+                if (response as? HTTPURLResponse) != nil {
+                    if let json = try? JSONSerialization.jsonObject(with: data!)  as? [String: Any] {
+                        if let id = json?.keys.first {
+                            print (id)
+                        }
+                    }
+                }
+            }
+        }
+        loadDataTask.resume()
+    
+    }
+    
     
     class func loadDataFromURL(_ urlString: String,
                                method: String,

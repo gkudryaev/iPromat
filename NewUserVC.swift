@@ -30,6 +30,8 @@ class NewUserVC: UITableViewController {
             AppModule.sharedInstance.alertError("Неверный номер телефона", view: self)
             return
         }
+        JsonHelper.sendSMS(phone: PhoneTxt.text!, text: "iPromat:kod%20podtverzdenija%2012345")
+
         requestPhoneCode ()
     }
     

@@ -137,7 +137,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Укажите телефон или email и пароль" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbp-rr-Xce">
                                                     <rect key="frame" x="8" y="8" width="359" height="27.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.93725490199999995" green="0.54117647059999996" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -412,19 +412,19 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u7u-hb-eoo" id="qa9-fQ-c5X">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите код, присланный по СМС (12345)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FI9-aI-Cby">
-                                                    <rect key="frame" x="8" y="8" width="359" height="27.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите код, присланный по СМС" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FI9-aI-Cby">
+                                                    <rect key="frame" x="8" y="0.0" width="359" height="43.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.93725490199999995" green="0.54117647059999996" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="FI9-aI-Cby" firstAttribute="top" secondItem="qa9-fQ-c5X" secondAttribute="topMargin" id="X0B-3y-ItG"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="FI9-aI-Cby" secondAttribute="bottom" id="gUr-gB-1Q6"/>
+                                                <constraint firstItem="FI9-aI-Cby" firstAttribute="top" secondItem="qa9-fQ-c5X" secondAttribute="top" id="X0B-3y-ItG"/>
+                                                <constraint firstAttribute="bottom" secondItem="FI9-aI-Cby" secondAttribute="bottom" id="gUr-gB-1Q6"/>
                                                 <constraint firstItem="FI9-aI-Cby" firstAttribute="leading" secondItem="qa9-fQ-c5X" secondAttribute="leadingMargin" id="q6u-9s-6ih"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="FI9-aI-Cby" secondAttribute="trailing" id="qSL-Jx-8aY"/>
                                             </constraints>
@@ -434,11 +434,11 @@
                                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cbU-le-cb4" id="fEZ-OD-P8O">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Код подтверждения" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3C7-KB-xgW">
-                                                    <rect key="frame" x="8" y="17" width="359" height="19"/>
+                                                    <rect key="frame" x="8" y="9" width="359" height="34.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -447,8 +447,8 @@
                                             <constraints>
                                                 <constraint firstItem="3C7-KB-xgW" firstAttribute="leading" secondItem="fEZ-OD-P8O" secondAttribute="leadingMargin" id="M4i-bx-QiH"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="3C7-KB-xgW" secondAttribute="trailing" id="Ynw-HY-oUZ"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="3C7-KB-xgW" secondAttribute="bottom" id="ZJ2-dg-Mrh"/>
-                                                <constraint firstItem="3C7-KB-xgW" firstAttribute="top" secondItem="fEZ-OD-P8O" secondAttribute="topMargin" constant="9" id="e4s-ww-1IF"/>
+                                                <constraint firstAttribute="bottom" secondItem="3C7-KB-xgW" secondAttribute="bottom" id="ZJ2-dg-Mrh"/>
+                                                <constraint firstItem="3C7-KB-xgW" firstAttribute="top" secondItem="fEZ-OD-P8O" secondAttribute="top" constant="9" id="e4s-ww-1IF"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -456,7 +456,7 @@
                                         <rect key="frame" x="0.0" y="88" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YTm-oa-Re9" id="ayg-4B-qyG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfP-Bq-OTt">
@@ -577,22 +577,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U8X-CD-CLd">
-                                <rect key="frame" x="16" y="64" width="343" height="128"/>
+                                <rect key="frame" x="16" y="64" width="343" height="200"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите код, присланный по СМС" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4q-6Q-CSx">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите код (доставка СМС может занять несколько минут)" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4q-6Q-CSx">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="Hpc-aq-psJ"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.93725490199999995" green="0.54117647059999996" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите код" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pe1-4p-1By">
-                                        <rect key="frame" x="8" y="49" width="327" height="30"/>
+                                        <rect key="frame" x="8" y="85" width="327" height="30"/>
                                         <color key="textColor" red="0.97254901959999995" green="0.5450980392" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oe8-uw-jq1">
-                                        <rect key="frame" x="8" y="90" width="327" height="30"/>
+                                        <rect key="frame" x="8" y="162" width="327" height="30"/>
                                         <color key="backgroundColor" red="0.97254901959999995" green="0.5450980392" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Подтвердить код">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -605,7 +608,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Pe1-4p-1By" firstAttribute="centerY" secondItem="U8X-CD-CLd" secondAttribute="centerY" id="OBG-me-AIl"/>
-                                    <constraint firstAttribute="height" constant="128" id="OzL-3m-AS4"/>
+                                    <constraint firstAttribute="height" constant="200" id="OzL-3m-AS4"/>
                                     <constraint firstAttribute="trailing" secondItem="t4q-6Q-CSx" secondAttribute="trailing" id="aLg-Tt-3BY"/>
                                     <constraint firstItem="Pe1-4p-1By" firstAttribute="leading" secondItem="U8X-CD-CLd" secondAttribute="leadingMargin" id="h6A-2p-g73"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="Oe8-uw-jq1" secondAttribute="trailing" id="hEO-qo-ZWj"/>
@@ -650,10 +653,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите код, присланный по СМС (12345)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDl-e5-11B">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите код, присланный по СМС" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDl-e5-11B">
                                                     <rect key="frame" x="8" y="8" width="359" height="27.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.93725490199999995" green="0.54117647059999996" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -672,17 +675,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Код подтверждения" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ghb-3w-bdr">
-                                                    <rect key="frame" x="8" y="12" width="359" height="19"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Код подтверждения" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ghb-3w-bdr">
+                                                    <rect key="frame" x="8" y="0.0" width="359" height="44"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ghb-3w-bdr" firstAttribute="top" secondItem="rJ9-nJ-YW0" secondAttribute="topMargin" id="Gbf-cY-O81"/>
+                                                <constraint firstItem="ghb-3w-bdr" firstAttribute="top" secondItem="rJ9-nJ-YW0" secondAttribute="top" id="Gbf-cY-O81"/>
                                                 <constraint firstItem="ghb-3w-bdr" firstAttribute="trailing" secondItem="rJ9-nJ-YW0" secondAttribute="trailingMargin" id="hCh-vj-wqk"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="ghb-3w-bdr" secondAttribute="bottom" id="iFd-Km-cJ7"/>
+                                                <constraint firstAttribute="bottom" secondItem="ghb-3w-bdr" secondAttribute="bottom" id="iFd-Km-cJ7"/>
                                                 <constraint firstItem="ghb-3w-bdr" firstAttribute="leading" secondItem="rJ9-nJ-YW0" secondAttribute="leadingMargin" id="qQn-VZ-d9A"/>
                                             </constraints>
                                         </tableViewCellContentView>
