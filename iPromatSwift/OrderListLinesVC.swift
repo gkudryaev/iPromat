@@ -64,21 +64,37 @@ class OrderListLinesVC: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return suppliers.count
+        //header and line's count
+        return suppliers.count + 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return supplierLines[suppliers[section]]!.count
+        return section == 1 ? 0 : supplierLines[suppliers[section]]!.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "line", for: indexPath)
-
-        cell.textLabel?.text = order.lines[indexPath.row].item + " (к-во: " + String (order.lines [indexPath.row].qty) + ")"
-        cell.detailTextLabel?.text = "" //String (order.lines [indexPath.row].qty)
-
-        return cell
+        
+        
+        if indexPath.section > 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "line", for: indexPath) as! OrderListLinesCell
+            
+            if let line =  (supplierLines[suppliers[indexPath.section]])?[indexPath.row] {
+                cell.name.text = line.item
+                cell.quantity.text = "Кол-во: \(line.qty)"
+                cell.price.text = "Стоимость: \(line.price)"
+            }
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "header", for: indexPath) as! OrderListLinesCell
+            
+            if let line =  (supplierLines[suppliers[indexPath.section]])?[indexPath.row] {
+                cell.orderCost.text = line.item
+                cell.orderDelivery.text = "Кол-во: \(order)"
+            }
+            return cell
+            
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -86,6 +102,11 @@ class OrderListLinesVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        
+        if section == 0 {
+            return UIView()
+        }
         
         navigationItem.title = "Заказ \(String(order.id))"
         navigationController?.title = "Заказ \(String(order.id))"

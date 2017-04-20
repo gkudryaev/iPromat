@@ -33,8 +33,8 @@ enum JsonUrls {
     case rateSupplier
     
     func request () -> (url: String, method: String) {
-        //let host = "http://192.168.0.135:8080/ords/test/"
-        let host = "https://apex.oracle.com/pls/apex/grigh/"
+        let host = "http://192.168.0.135:8080/ords/test/"
+        //let host = "https://apex.oracle.com/pls/apex/grigh/"
         
         switch self {
         case .catalog: //пробовал (complete):

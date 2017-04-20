@@ -21,7 +21,7 @@ class LogonConfirmPhone: UIViewController {
     @IBAction func confirmPressed(_ sender: Any) {
         
         if ((phoneTxt.text?.characters.count)! > 6) {
-            JsonHelper.sendSMS(phone: phoneTxt.text!, text: "iPromat:kod%20podtverzdenija%2012345")
+            //JsonHelper.sendSMS(phone: phoneTxt.text!, text: "iPromat:kod%20podtverzdenija%2012345")
             requestCheckPhone()
         } else {
             AppModule.sharedInstance.alertError("Неверный номер телефона", view: self)

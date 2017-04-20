@@ -63,7 +63,8 @@ class OrderListVC: UITableViewController {
                             status: orderJson["status"] as! String,
                             address: orderJson["address"] as! String,
                             lines: lines,
-                            supplierRating: supplierRating)
+                            supplierRating: supplierRating,
+                            delivery: orderJson["delivery"] as! Int64)
                         
                         let status = orderJson["status"] as! String
                         
@@ -165,7 +166,7 @@ struct Order {
     var address: String
     var lines: [Line] = []
     var supplierRating: [String: Int64] = [:]
-    //var delivery: Int64
+    var delivery: Int64
     
     struct Line {
         var item: String
