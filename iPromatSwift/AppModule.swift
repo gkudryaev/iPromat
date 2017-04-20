@@ -17,6 +17,8 @@ class AppModule {
     
     static let defaultColor = UIColor (colorLiteralRed:248.0/255.0, green:139.0/255.0, blue:57.0/255.0, alpha:1)
     
+    static let sectionBkColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1)
+    
     func alertError (_ txtError: String, view: UIViewController) {
         
         let alert = UIAlertController(title: "Ошибка", message: txtError, preferredStyle: .alert)

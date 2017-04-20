@@ -28,7 +28,9 @@ class NewUserConfirmPhone: UITableViewController {
 
     func requestCheckPhoneCode () {
         JsonHelper.request(.checkPhoneCode,
-                           ["phone":phone!, "code": ConfirmCodeTxt.text!],
+                           ["phone":phone!, "code": ConfirmCodeTxt.text!,
+                            "name":name!, "email": email!,
+                            "status": "NEW"],
                            self,
                            {(json: [String: Any]?, error: String?) -> Void in
                             self.responseCheckPhoneCode(json: json, error: error)
@@ -40,33 +42,10 @@ class NewUserConfirmPhone: UITableViewController {
         if let error = error {
             AppModule.sharedInstance.alertError(error, view: self)
         } else {
-            requestNewCustomer()
-        }
-    }
-    
-    
-    func requestNewCustomer () {
-        JsonHelper.request(.newCustomer,
-                           ["phone":phone!, "name":name!, "email": email!],
-                           self,
-                           {(json: [String: Any]?, error: String?) -> Void in
-                            self.responseNewCustomer(json: json, error: error)
-        })
-    }
-    func responseNewCustomer (json: [String: Any]?, error: String?) {
-        
-        if let error = error {
-            AppModule.sharedInstance.alertError(error, view: self)
-        } else {
             userData.save(json: json!)
             AppModule.sharedInstance.goStoreBoard(storeBoardName: "Catalog")
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
+    
+    
 }

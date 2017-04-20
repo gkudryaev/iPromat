@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D9FC1401E9F85BB004F9329 /* CosmosDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9FC13F1E9F85BB004F9329 /* CosmosDistrib.swift */; };
+		7D9FC1421E9F92E8004F9329 /* SupplierRatingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9FC1411E9F92E8004F9329 /* SupplierRatingVC.swift */; };
+		7D9FC1461EA6626C004F9329 /* UISectionInHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9FC1451EA6626C004F9329 /* UISectionInHeaderView.swift */; };
 		9C072E2B1D8AF82C0038F13B /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C072E2A1D8AF82C0038F13B /* Menu.storyboard */; };
 		9C072E2D1D8AFEF00038F13B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C072E2C1D8AFEF00038F13B /* Profile.swift */; };
 		9C072E2F1D8B022D0038F13B /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C072E2E1D8B022D0038F13B /* Menu.swift */; };
@@ -69,6 +72,9 @@
 
 /* Begin PBXFileReference section */
 		7396FAFB8C056B6A37267917 /* Pods-iPromatSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPromatSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iPromatSwift/Pods-iPromatSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		7D9FC13F1E9F85BB004F9329 /* CosmosDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosDistrib.swift; sourceTree = "<group>"; };
+		7D9FC1411E9F92E8004F9329 /* SupplierRatingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupplierRatingVC.swift; sourceTree = "<group>"; };
+		7D9FC1451EA6626C004F9329 /* UISectionInHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISectionInHeaderView.swift; sourceTree = "<group>"; };
 		9C072E2A1D8AF82C0038F13B /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		9C072E2C1D8AFEF00038F13B /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		9C072E2E1D8B022D0038F13B /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
@@ -145,6 +151,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D9FC13E1E9F858B004F9329 /* 3rd */ = {
+			isa = PBXGroup;
+			children = (
+				7D9FC13F1E9F85BB004F9329 /* CosmosDistrib.swift */,
+			);
+			name = 3rd;
+			sourceTree = "<group>";
+		};
+		7D9FC1441EA66224004F9329 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				7D9FC1451EA6626C004F9329 /* UISectionInHeaderView.swift */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		9445CF4CA6796107FFD67D76 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +185,7 @@
 				9C072E2C1D8AFEF00038F13B /* Profile.swift */,
 				9C192E741E8BD6C0008E5222 /* OrderListVC.swift */,
 				9C192E761E8BDBD1008E5222 /* OrderListLinesVC.swift */,
+				7D9FC1411E9F92E8004F9329 /* SupplierRatingVC.swift */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -263,6 +286,8 @@
 				9CA841821D92C86E0040B87A /* Data */,
 				9CE3C24C1E798A2D009499A5 /* UserData */,
 				9C192E611E83EADD008E5222 /* NewOrder */,
+				7D9FC13E1E9F858B004F9329 /* 3rd */,
+				7D9FC1441EA66224004F9329 /* UI */,
 			);
 			path = iPromatSwift;
 			sourceTree = "<group>";
@@ -471,6 +496,7 @@
 				9C192E751E8BD6C0008E5222 /* OrderListVC.swift in Sources */,
 				9C192E691E83FB72008E5222 /* NewOrderAdressCell.swift in Sources */,
 				9C192E771E8BDBD1008E5222 /* OrderListLinesVC.swift in Sources */,
+				7D9FC1461EA6626C004F9329 /* UISectionInHeaderView.swift in Sources */,
 				9CE3C24E1E798AB5009499A5 /* UserData.swift in Sources */,
 				9CF85C361D7C66C40086AD6B /* JsonHelper.swift in Sources */,
 				9CA8419D1D952C050040B87A /* testPage.swift in Sources */,
@@ -479,6 +505,7 @@
 				9CF85C3A1D7DD4F20086AD6B /* LogonConfirmPhone.swift in Sources */,
 				9C0ACB761D913B7E0025A6B0 /* ItemDetail.swift in Sources */,
 				9CF85C1F1D783D280086AD6B /* AppDelegate.swift in Sources */,
+				7D9FC1401E9F85BB004F9329 /* CosmosDistrib.swift in Sources */,
 				9C192E731E8AA701008E5222 /* NewOrderCommentVC.swift in Sources */,
 				9C283DBA1D996225005B0F18 /* OrderCell.swift in Sources */,
 				9CF85C411D7EB6BC0086AD6B /* Category.swift in Sources */,
@@ -488,6 +515,7 @@
 				9CF85C4B1D8828990086AD6B /* SubSubCategory.swift in Sources */,
 				9CA841851D92C8CD0040B87A /* Data.xcdatamodeld in Sources */,
 				9CF85C451D7EF90A0086AD6B /* AppModule.swift in Sources */,
+				7D9FC1421E9F92E8004F9329 /* SupplierRatingVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

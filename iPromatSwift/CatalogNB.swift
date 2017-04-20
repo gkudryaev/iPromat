@@ -115,33 +115,19 @@ class CatalogNB: UINavigationBar, UITextFieldDelegate {
     
     func shopButtonPressed(sender:UIButton!)
     {
-
+        if cartCount?.text == "" {
+            return
+        }
         let storyBoard = UIStoryboard.init(name: "Order", bundle: nil)
         let vc = storyBoard.instantiateInitialViewController() as! OrderNC
         vc.ncOrigin = navigationController
         UIApplication.shared.keyWindow?.rootViewController = vc
-        
-
-        
-        /*
-        if navigationController?.topViewController is OrdersWrapVC {
-            return
-        }
-        
-
-        let storyBoard = UIStoryboard.init(name: "Order", bundle: nil)
-        let vc = storyBoard.instantiateViewController(withIdentifier: "OrderViewController")
-        
-       
-        navigationController?.pushViewController(vc,
-                                                 animated: true)
-        */
-
     }
     
     func setQty (){
         let cnt = CoreDataManager.instance.fetchOrders()?.count
         var s: String
+        //не переходим если корзина пустая
         if cnt == 0 {
             s = ""
             cartCount?.isHidden = true
@@ -153,9 +139,6 @@ class CatalogNB: UINavigationBar, UITextFieldDelegate {
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        
-        //self.navigationController?.navigationBar = CatalogSearchNB()
-        
         if let nc = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
             if nc.viewControllers [0] is Category{
                 nc.viewControllers [0].performSegue(withIdentifier: "catalogSearch", sender: nil)

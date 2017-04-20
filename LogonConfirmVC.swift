@@ -21,7 +21,12 @@ class LogonConfirmVC: UIViewController {
 
     func requestCheckPhoneCode () {
         JsonHelper.request(.checkPhoneCode,
-                           ["phone":phone, "code": codeTextField.text!],
+                           ["phone":phone, "code": codeTextField.text!,
+                            "email": userData.email,
+                            "fid": userData.fid,
+                            "fname": userData.fname,
+                            "name": userData.name,
+                            "status": "NEW"],
                            self,
                            {(json: [String: Any]?, error: String?) -> Void in
                             self.responseCheckPhoneCode(json: json, error: error)
@@ -34,35 +39,12 @@ class LogonConfirmVC: UIViewController {
             AppModule.sharedInstance.alertError(error, view: self)
         }
         if let json = json {
-            userData.phone = phone
-            requestLogin()
+            userData.save(json: json)
+            AppModule.sharedInstance.goStoreBoard(storeBoardName: "Catalog")
         }
     }
 
     
-    func requestLogin () {
-        JsonHelper.request(.login,
-                           ["phone": userData.phone,
-                            "email": userData.email,
-                            "fid": userData.fid,
-                            "fname": userData.fname,
-                            "name": userData.name ],
-                           self,
-                           {(json: [String: Any]?, error: String?) -> Void in
-                            self.responseLogin(json: json, error: error)
-        })
-    }
-    
-    func responseLogin (json: [String: Any]?, error: String?) {
-        if let error = error {
-            AppModule.sharedInstance.alertError(error, view: self)
-        } else {
-            if let json = json {
-                userData.save(json: json)
-                AppModule.sharedInstance.goStoreBoard(storeBoardName: "Catalog")
-            }
-        }
-    }
     
     
     override func viewDidLoad() {

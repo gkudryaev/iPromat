@@ -30,10 +30,12 @@ enum JsonUrls {
     case order
     case orderList
     case orderCancel
+    case rateSupplier
     
     func request () -> (url: String, method: String) {
         //let host = "http://192.168.0.135:8080/ords/test/"
         let host = "https://apex.oracle.com/pls/apex/grigh/"
+        
         switch self {
         case .catalog: //пробовал (complete):
             return (host + "v0.2/items", "GET")
@@ -57,6 +59,8 @@ enum JsonUrls {
             return (host + "v0.2/order_list", "POST")
         case .orderCancel:
             return (host + "v0.2/order_cancel", "POST")
+        case .rateSupplier:
+            return (host + "v0.2/rate_supplier", "POST")
             
         }
     }
@@ -66,6 +70,12 @@ enum JsonUrls {
 }
 
 class JsonHelper {
+    
+    static let activityIndicator = UIActivityIndicatorView()
+    static var container: UIView = UIView()
+    static var loadingView: UIView = UIView()
+    
+
     
     class func request (_ url: JsonUrls,
                         _ params: Dictionary<String, Any>?,
@@ -93,7 +103,6 @@ class JsonHelper {
                                params: Dictionary<String,Any>?,
                                viewController: UIViewController?,
                                completion:@escaping (_ json: [String:Any]?, _ errStr: String?) -> Void) {
-        
         
         let configuration = URLSessionConfiguration.default
         let session = URLSession(configuration:configuration)
@@ -131,9 +140,52 @@ class JsonHelper {
                         }
                     }
                 }
+                stopActivity()
             }
         }
-        
+        startActivity()
         loadDataTask.resume()
+    }
+    
+    class func startActivity () {
+        
+        guard let view = UIApplication.shared.keyWindow?.subviews.last else {
+            return
+        }
+
+        container.frame = view.frame
+        container.center = view.center
+        container.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+        
+        loadingView.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
+        loadingView.center = view.center
+        loadingView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.8)
+        loadingView.clipsToBounds = true
+        loadingView.layer.cornerRadius = 10
+        
+        //activityIndicator.frame = CGRect(x: 0.0, y: 0.0, width: 80.0, height: 80.0);
+        activityIndicator.activityIndicatorViewStyle = .whiteLarge
+        activityIndicator.center = view.center
+        activityIndicator.color = .white
+        
+        loadingView.addSubview(activityIndicator)
+        container.addSubview(loadingView)
+        view.addSubview(container)
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+    }
+    
+    class func startActivityOld () {
+        let view = UIApplication.shared.keyWindow?.subviews.last
+        activityIndicator.center = view!.center
+        activityIndicator.activityIndicatorViewStyle = .whiteLarge
+        activityIndicator.color = .gray
+        activityIndicator.startAnimating()
+        view?.addSubview(activityIndicator)
+    }
+    class func stopActivity () {
+        activityIndicator.stopAnimating()
+        container.removeFromSuperview()
+        activityIndicator.removeFromSuperview()
     }
 }

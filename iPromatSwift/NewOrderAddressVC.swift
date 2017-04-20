@@ -73,13 +73,26 @@ class NewOrderAddressVC: UITableViewController {
         }
     }
     
+    /*
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         return section == 0 ? "Укажите адрес доставки" : "История адресов"
     }
+ */
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let view = UISectionInHeaderView ()
+        if section == 0 {
+            view.header(labelString: "АДРЕС ДОСТАВКИ", commentString: "")
+        } else {
+            view.header(labelString: "ИСТОРИЯ", commentString: "предыдущие адреса доставки")
+            
+        }
+        return view
+    }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
+        return 70
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
