@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7D07201B1EA92C7800085442 /* OrderListLinesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D07201A1EA92C7800085442 /* OrderListLinesCell.swift */; };
+		7D07201D1EA9CBBD00085442 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D07201C1EA9CBBD00085442 /* OrderModel.swift */; };
 		7D9FC1401E9F85BB004F9329 /* CosmosDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9FC13F1E9F85BB004F9329 /* CosmosDistrib.swift */; };
 		7D9FC1421E9F92E8004F9329 /* SupplierRatingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9FC1411E9F92E8004F9329 /* SupplierRatingVC.swift */; };
 		7D9FC1461EA6626C004F9329 /* UISectionInHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9FC1451EA6626C004F9329 /* UISectionInHeaderView.swift */; };
@@ -74,6 +75,7 @@
 /* Begin PBXFileReference section */
 		7396FAFB8C056B6A37267917 /* Pods-iPromatSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPromatSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iPromatSwift/Pods-iPromatSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		7D07201A1EA92C7800085442 /* OrderListLinesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderListLinesCell.swift; sourceTree = "<group>"; };
+		7D07201C1EA9CBBD00085442 /* OrderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		7D9FC13F1E9F85BB004F9329 /* CosmosDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosDistrib.swift; sourceTree = "<group>"; };
 		7D9FC1411E9F92E8004F9329 /* SupplierRatingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupplierRatingVC.swift; sourceTree = "<group>"; };
 		7D9FC1451EA6626C004F9329 /* UISectionInHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISectionInHeaderView.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				9CA841831D92C8CD0040B87A /* Data.xcdatamodeld */,
 				9CA8418A1D92D0DD0040B87A /* Storage.swift */,
 				9CA841781D92B9130040B87A /* CoreDataManager.swift */,
+				7D07201C1EA9CBBD00085442 /* OrderModel.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				9C192E6F1E89576F008E5222 /* NewOrderConfirmVC.swift in Sources */,
 				9CE3C24A1E7973E0009499A5 /* LogonAccountConfirmCode.swift in Sources */,
 				9C89C4AD1E8167110053F3AE /* CatalogSearch.swift in Sources */,
+				7D07201D1EA9CBBD00085442 /* OrderModel.swift in Sources */,
 				9CF85C341D786E310086AD6B /* LogonAccount.swift in Sources */,
 				9C192E651E83EC66008E5222 /* NewOrderPC.swift in Sources */,
 				9C192E751E8BD6C0008E5222 /* OrderListVC.swift in Sources */,

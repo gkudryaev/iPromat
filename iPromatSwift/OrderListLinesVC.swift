@@ -12,16 +12,14 @@ class OrderListLinesVC: UITableViewController {
     
     var order: Order!
     
-    var supplierLines: [String:[Order.Line]] = [:] //строки поставщиков
-    var suppliers: [String]! //поставщики
-    
+   
 
     @IBAction func cancelRatingSupplier(segue:UIStoryboardSegue) {
         print ("cancel")
     }
     @IBAction func doneRatingSupplier(segue:UIStoryboardSegue) {
         guard let vc = segue.source as? SupplierRatingVC else {return}
-        order.supplierRating[vc.supplier!] = vc.rating
+        order.supplierRatings[vc.supplier!] = vc.rating
         requestRateSupplier (supplier: vc.supplier!, rating: vc.rating!)
     }
     
@@ -48,29 +46,18 @@ class OrderListLinesVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        for line in order.lines {
-            var lines = supplierLines[line.supplier] ?? []
-            lines.append(line)
-            supplierLines [line.supplier] = lines
-        }
-        suppliers = Array(supplierLines.keys)
-        //tableView.tint
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         //header and line's count
-        return suppliers.count + 1
+        return order.suppliers.count + 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return section == 1 ? 0 : supplierLines[suppliers[section]]!.count
+        return section == 0 ? 0 : order.supplierLines[section-1].count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -79,19 +66,23 @@ class OrderListLinesVC: UITableViewController {
         if indexPath.section > 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "line", for: indexPath) as! OrderListLinesCell
             
-            if let line =  (supplierLines[suppliers[indexPath.section]])?[indexPath.row] {
-                cell.name.text = line.item
-                cell.quantity.text = "Кол-во: \(line.qty)"
-                cell.price.text = "Стоимость: \(line.price)"
+            let line =  order.supplierLines[indexPath.section-1][indexPath.row]
+            cell.name.text = line.item
+            cell.quantity.text = "Кол-во: \(line.qty)"
+            if let price = line.price, price != 0 {
+                cell.price.text = "Стоимость: \(String(price))"
+            } else {
+                cell.price.text = "Цена не сформирована"
             }
             return cell
+            
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "header", for: indexPath) as! OrderListLinesCell
             
-            if let line =  (supplierLines[suppliers[indexPath.section]])?[indexPath.row] {
-                cell.orderCost.text = line.item
-                cell.orderDelivery.text = "Кол-во: \(order)"
-            }
+            let line =  order.supplierLines[indexPath.section-1][indexPath.row]
+            cell.orderCost.text = line.item
+            cell.orderDelivery.text = "Кол-во: \(order)"
+            
             return cell
             
         }
@@ -117,7 +108,7 @@ class OrderListLinesVC: UITableViewController {
         
         view.backgroundColor = AppModule.sectionBkColor
         
-        label.text = suppliers[section]
+        label.text = order.suppliers[section-1]
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.lightGray
         label.font = label.font.withSize(15)
@@ -126,9 +117,9 @@ class OrderListLinesVC: UITableViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Оценить", for: .normal)
         button.titleLabel!.font = UIFont (name: button.titleLabel!.font.fontName, size: 13)
-        button.setTitle(suppliers[section], for: .reserved)
+        button.setTitle(order.suppliers[section-1], for: .reserved)
         
-        if suppliers[section] != "Поставщик не определен" {
+        if order.suppliers[section-1] != "Поставщик не определен" {
             button.addTarget(self, action: #selector(OrderListLinesVC.rateSupplier(sender:)), for:.touchUpInside)
             button.setTitleColor(UIColor.blue, for: .normal)
         } else {
@@ -156,7 +147,7 @@ class OrderListLinesVC: UITableViewController {
             if let button = sender as? UIButton {
                 guard let supplier = button.title(for: .reserved) else {return}
                 vc.supplier = supplier
-                guard let rating = order.supplierRating[supplier] else {return}
+                guard let rating = order.supplierRatings[supplier] else {return}
                 vc.rating = rating
             }
         }
