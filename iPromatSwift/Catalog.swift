@@ -17,7 +17,7 @@ protocol CatalogDelegate {
 class Catalog {
     
     class Item {
-        let id: Int
+        let id: Int64
         var name: String
         var vendor: String?
         var image: String?
@@ -30,7 +30,7 @@ class Catalog {
                 else {
                     return nil
             }
-            id = (json["id"] as? Int)!
+            id = (json["id"] as? Int64)!
             name = (json["name"] as? String)!
             vendor = json["vendor"] as? String
             image = json["image"] as? String
@@ -51,26 +51,28 @@ class Catalog {
         init? (json: Any, lvl: Int) {
             
             self.lvl = lvl
-            guard let json = json as? [String: Any]
-                else {
-                    return nil
-            }
+            guard let json = json as? [String: Any],
+            let name = json["name"] as? String
+                else {return nil}
 
-            name = (json["name"] as? String)!
+            self.name = name
             image = json["image"] as? String
             
             let subCatNode = "cat_\(lvl+1)"
             if let subcatsJson = json[subCatNode] as? [Any] {
                 for catJson in subcatsJson {
-                    let cat = Category(json: catJson, lvl: lvl+1)
-                    subCategory.append(cat!)
+                    if let cat = Category(json: catJson, lvl: lvl+1) {
+                        subCategory.append(cat)
+                    }
                 }
             }
             
             if let itemsJson = json["items"] as? [Any] {
                 for itemJson in itemsJson {
-                    let item = Item(json: itemJson)
-                    items.append(item!)
+                    if let item = Item(json: itemJson) {
+                        items.append(item)
+                        catalog?.items[item.id] = item
+                    }
                 }
             }
         }
@@ -80,6 +82,7 @@ class Catalog {
     static let sharedInstance = Catalog()
     var categories = [Category] ()
     var delegate: CatalogDelegate?
+    var items: [Int64:Item] = [:]
     
     var lvl1Selected: Category?
     var lvl2Selected: Category?
@@ -95,9 +98,6 @@ class Catalog {
                            ) {(json: [String: Any]?, error: String?) -> Void in
             if let json = json {
                 self.parseJson(json)
-                if let delegate = self.delegate {
-                    delegate.loaded()
-                }
             }
         }
     }
@@ -109,6 +109,9 @@ class Catalog {
                     self.categories.append(cat)
                 }
             }
+        }
+        if let delegate = self.delegate {
+            delegate.loaded()
         }
     }
 }

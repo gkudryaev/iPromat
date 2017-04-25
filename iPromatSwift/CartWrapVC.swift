@@ -8,14 +8,14 @@
 
 import UIKit
 
-class OrdersWrapVC: UIViewController {
+class CartWrapVC: UIViewController {
 
     @IBAction func requestPressed(_ sender: Any) {
         AppModule.sharedInstance.goStoreBoard(storeBoardName: "NewOrder")
     }
     
     @IBAction func pressBack(_ sender: Any) {
-        let nc = navigationController as! OrderNC
+        let nc = navigationController as! CartNC
         let nb = nc.ncOrigin?.navigationBar as! CatalogNB
         nb.setQty()
         UIApplication.shared.keyWindow?.rootViewController = nc.ncOrigin

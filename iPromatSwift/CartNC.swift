@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OrderNC: UINavigationController {
+class CartNC: UINavigationController {
     
     var ncOrigin: UINavigationController?
 

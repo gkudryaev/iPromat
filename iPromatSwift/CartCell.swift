@@ -8,9 +8,9 @@
 
 import UIKit
 
-class OrderCell: UITableViewCell {
+class CartCell: UITableViewCell {
     
-    var vc: OrdersVC?
+    var vc: CartVC?
 
     @IBOutlet weak var itemImage: UIImageView!
     

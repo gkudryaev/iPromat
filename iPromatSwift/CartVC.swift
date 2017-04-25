@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 
-class OrdersVC: UITableViewController {
+class CartVC: UITableViewController {
 
     var fetchedResultsController = CoreDataManager.instance.fetchedResultsController(entityName: "OrderEntity", keyForSort: "itemId")
     
@@ -54,12 +54,12 @@ class OrdersVC: UITableViewController {
         
         var cellName: String
         if selectedIndex == indexPath {
-            cellName = "OrderCell" //"OrderCellSelected"
+            cellName = "CartCell" //"OrderCellSelected"
         } else {
-            cellName = "OrderCell"
+            cellName = "CartCell"
         }
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath) as! OrderCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath) as! CartCell
 
         let order = fetchedResultsController.object(at: indexPath) as! OrderEntity
         cell.order = order

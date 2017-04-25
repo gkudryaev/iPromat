@@ -118,8 +118,8 @@ class CatalogNB: UINavigationBar, UITextFieldDelegate {
         if cartCount?.text == "" {
             return
         }
-        let storyBoard = UIStoryboard.init(name: "Order", bundle: nil)
-        let vc = storyBoard.instantiateInitialViewController() as! OrderNC
+        let storyBoard = UIStoryboard.init(name: "Cart", bundle: nil)
+        let vc = storyBoard.instantiateInitialViewController() as! CartNC
         vc.ncOrigin = navigationController
         UIApplication.shared.keyWindow?.rootViewController = vc
     }

@@ -10,7 +10,7 @@ import UIKit
 
 class OrderListVC: UITableViewController {
     
-    var statuses: [String] = []
+    var statuses: [Order.Status] = []
     var statusOrders: [[Order]] = []
 
     override func viewDidLoad() {
@@ -30,11 +30,15 @@ class OrderListVC: UITableViewController {
         if let error = error {
             AppModule.sharedInstance.alertError(error, view: self)
         } else {
-            if let ordersJson = json? ["orders"] as? [Any] {
-                (statuses, statusOrders) = Order.orders(json: ordersJson)
-            }
-            tableView.reloadData()
+            refresh (json: json)
         }
+    }
+    
+    func refresh (json: [String: Any]?) {
+        if let ordersJson = json? ["orders"] as? [Any] {
+            (statuses, statusOrders) = Order.orders(json: ordersJson)
+        }
+        tableView.reloadData()
     }
 
 
@@ -56,7 +60,7 @@ class OrderListVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "order", for: indexPath)
 
         let order = statusOrders[indexPath.section] [indexPath.row]
-        cell.textLabel?.text = order.lines.first?.item
+        cell.textLabel?.text = order.lines.first?.item.name
         if order.lines.count > 1 {
             cell.textLabel?.text  = cell.textLabel!.text!  + " (и еще \(order.lines.count-1))"
         }
@@ -79,7 +83,7 @@ class OrderListVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return statuses[section]
+        return statuses[section].name
     }
     
     

@@ -26,7 +26,7 @@ class OrderListLinesVC: UITableViewController {
     func requestRateSupplier (supplier: String, rating: Int64) {
         JsonHelper.request(.rateSupplier,
                            ["id":userData.id,
-                            "order":order.id,
+                            "order_id":order.id,
                             "supplier":supplier,
                             "rating":rating,
                             ],
@@ -57,7 +57,7 @@ class OrderListLinesVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return section == 0 ? 0 : order.supplierLines[section-1].count
+        return section == 0 ? 4 : order.supplierLines[section-1].count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,22 +67,53 @@ class OrderListLinesVC: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "line", for: indexPath) as! OrderListLinesCell
             
             let line =  order.supplierLines[indexPath.section-1][indexPath.row]
-            cell.name.text = line.item
+            cell.name.text = line.item.name
             cell.quantity.text = "Кол-во: \(line.qty)"
             if let price = line.price, price != 0 {
                 cell.price.text = "Стоимость: \(String(price))"
             } else {
-                cell.price.text = "Цена не сформирована"
+                cell.price.text = "Еще нет ставок"
+            }
+            if let image = line.item.image {
+                cell.customImage.imageFromUrl(image)
             }
             return cell
             
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "header", for: indexPath) as! OrderListLinesCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: indexPath.row != 3 ? "headerLine" : "confirmOrder", for: indexPath) as! OrderListLinesCell
             
-            let line =  order.supplierLines[indexPath.section-1][indexPath.row]
-            cell.orderCost.text = line.item
-            cell.orderDelivery.text = "Кол-во: \(order)"
-            
+            switch indexPath.row {
+            case 0:
+                cell.textLabel?.text = order.status.name
+                cell.detailTextLabel?.text = ""
+            case 1:
+                let cost = String(order.cost)
+                if cost != "0" {
+                    cell.textLabel?.text = "Общая стоимость"
+                    cell.detailTextLabel?.text = cost
+                } else {
+                    cell.textLabel?.text = "Нет ставок"
+                    cell.detailTextLabel?.text = ""
+                }
+            case 2:
+                let delivery = String(order.delivery)
+                if delivery != "0" {
+                    cell.textLabel?.text = "В том числе доставка"
+                    cell.detailTextLabel?.text = delivery
+                } else {
+                    cell.textLabel?.text = ""
+                    cell.detailTextLabel?.text = ""
+                }
+            case 3:
+                if order.status != Order.Status.FIRST_BID {
+                    cell.isHidden = true
+                } else {
+                    cell.isHidden = false
+                }
+                cell.vc = self
+            default: break
+            }
+           
             return cell
             
         }
@@ -92,26 +123,41 @@ class OrderListLinesVC: UITableViewController {
         return 44
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return indexPath.section == 0 ? 44 : 88
+    }
+    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        
-        if section == 0 {
-            return UIView()
-        }
-        
-        navigationItem.title = "Заказ \(String(order.id))"
-        navigationController?.title = "Заказ \(String(order.id))"
-
         
         let view = UIView()
         let label = UILabel()
         
-        view.backgroundColor = AppModule.sectionBkColor
-        
-        label.text = order.suppliers[section-1]
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.lightGray
         label.font = label.font.withSize(15)
+
+        view.addSubview(label)
+        view.backgroundColor = AppModule.sectionBkColor
+        
+        
+        if section == 0 {
+            let views = ["label": label,"view": view]
+
+            let horizontallayoutContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[label]-10-|", options: .alignAllCenterY, metrics: nil, views: views)
+            view.addConstraints(horizontallayoutContraints)
+            
+            let verticalLayoutContraint = NSLayoutConstraint(item: label, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+            view.addConstraint(verticalLayoutContraint)
+            
+            label.text = "ОБЩАЯ ИНФОРМАЦИЯ"
+            
+            return view
+        }
+        
+        navigationItem.title = "Заказ \(String(order.id))"
+        navigationController?.title = "Заказ \(String(order.id))"
+        
+        label.text = order.suppliers[section-1]
 
         let button   = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -127,7 +173,6 @@ class OrderListLinesVC: UITableViewController {
         }
         
         let views = ["label": label,"button":button,"view": view]
-        view.addSubview(label)
         view.addSubview(button)
         let horizontallayoutContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[label]-5-[button(70)]-|", options: .alignAllCenterY, metrics: nil, views: views)
         view.addConstraints(horizontallayoutContraints)
@@ -137,7 +182,41 @@ class OrderListLinesVC: UITableViewController {
         
         return view
     }
+
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 44
+    }
+
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
+        if section != 0 {
+            return nil
+        }
     
+        let view = UIView()
+        let label = UILabel()
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = UIColor.lightGray
+        label.font = label.font.withSize(15)
+        
+        view.addSubview(label)
+        view.backgroundColor = AppModule.sectionBkColor
+        
+        
+        let views = ["label": label,"view": view]
+        
+        let horizontallayoutContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[label]-10-|", options: .alignAllCenterY, metrics: nil, views: views)
+        view.addConstraints(horizontallayoutContraints)
+        
+        let verticalLayoutContraint = NSLayoutConstraint(item: label, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+        view.addConstraint(verticalLayoutContraint)
+        
+        label.text = "СТРОКИ ЗАКАЗА"
+        
+        return view
+    }
+
     func rateSupplier (sender:UIButton!) {
         performSegue(withIdentifier: "rateSupplier", sender: sender)
     }

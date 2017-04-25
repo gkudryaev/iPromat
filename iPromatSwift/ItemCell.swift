@@ -17,7 +17,7 @@ class ItemCell: UITableViewCell {
     @IBOutlet weak var detailButton: UIButton!
     @IBOutlet weak var viewButtons: UIView!
     
-
+ 
     var item: Catalog.Item! {
         didSet {
             nameLabel.text = item.name

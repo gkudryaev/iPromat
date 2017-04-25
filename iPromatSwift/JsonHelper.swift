@@ -30,6 +30,7 @@ enum JsonUrls {
     case order
     case orderList
     case orderCancel
+    case orderStatus
     case rateSupplier
     
     func request () -> (url: String, method: String) {
@@ -59,9 +60,10 @@ enum JsonUrls {
             return (host + "v0.2/order_list", "POST")
         case .orderCancel:
             return (host + "v0.2/order_cancel", "POST")
+        case .orderStatus:
+            return (host + "v0.2/order_status", "POST")
         case .rateSupplier:
             return (host + "v0.2/rate_supplier", "POST")
-            
         }
     }
     
