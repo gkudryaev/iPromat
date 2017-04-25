@@ -233,6 +233,7 @@
 				9CA8418A1D92D0DD0040B87A /* Storage.swift */,
 				9CA841781D92B9130040B87A /* CoreDataManager.swift */,
 				7D07201C1EA9CBBD00085442 /* OrderModel.swift */,
+				9CF85C421D7EB7750086AD6B /* Catalog.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -318,7 +319,6 @@
 			isa = PBXGroup;
 			children = (
 				9CF85C3C1D7EA8380086AD6B /* Catalog.storyboard */,
-				9CF85C421D7EB7750086AD6B /* Catalog.swift */,
 				9CF85C401D7EB6BC0086AD6B /* Category.swift */,
 				9CF85C481D8826640086AD6B /* SubCategory.swift */,
 				9CF85C4A1D8828990086AD6B /* SubSubCategory.swift */,

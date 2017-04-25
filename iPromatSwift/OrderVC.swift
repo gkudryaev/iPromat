@@ -12,6 +12,10 @@ class OrderVC: UITableViewController {
     
     var order: Order!
     
+    var rowCost: Int!
+    var rowDelivery: Int!
+    var rowConfirm: Int!
+    
    
 
     @IBAction func cancelRatingSupplier(segue:UIStoryboardSegue) {
@@ -57,7 +61,30 @@ class OrderVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return section == 0 ? 4 : order.supplierLines[section-1].count
+        if section > 0 {
+            return order.supplierLines[section-1].count
+        } else {
+            
+            var cnt = 4
+            
+            if order.cost == 0 {
+                cnt = 2
+                rowCost = 101
+                rowDelivery = 102
+            } else {
+                rowCost = 1
+                rowDelivery = 2
+            }
+            
+            if order.status != .FIRST_BID {
+                cnt -= 1
+                rowConfirm = 103
+            } else {
+                rowConfirm = cnt - 1
+            }
+            return cnt
+        }
+        
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -86,7 +113,7 @@ class OrderVC: UITableViewController {
             case 0:
                 cell.textLabel?.text = order.status.name
                 cell.detailTextLabel?.text = ""
-            case 1:
+            case rowCost:
                 let cost = String(order.cost)
                 if cost != "0" {
                     cell.textLabel?.text = "Общая стоимость"
@@ -95,7 +122,7 @@ class OrderVC: UITableViewController {
                     cell.textLabel?.text = "Нет ставок"
                     cell.detailTextLabel?.text = ""
                 }
-            case 2:
+            case rowDelivery:
                 let delivery = String(order.delivery)
                 if delivery != "0" {
                     cell.textLabel?.text = "В том числе доставка"
@@ -104,7 +131,7 @@ class OrderVC: UITableViewController {
                     cell.textLabel?.text = ""
                     cell.detailTextLabel?.text = ""
                 }
-            case 3:
+            case rowConfirm:
                 if order.status != Order.Status.FIRST_BID {
                     cell.isHidden = true
                 } else {
