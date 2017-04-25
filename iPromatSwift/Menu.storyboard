@@ -547,7 +547,7 @@
         <!--Заказы-->
         <scene sceneID="OBZ-JJ-8EK">
             <objects>
-                <tableViewController id="ixF-Rb-fKk" customClass="OrderListVC" customModule="iPromatSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ixF-Rb-fKk" customClass="OrdersVC" customModule="iPromatSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="5" rowHeight="66" sectionHeaderHeight="28" sectionFooterHeight="28" id="fGZ-Gn-QB9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -607,16 +607,16 @@
             </objects>
             <point key="canvasLocation" x="1876" y="100"/>
         </scene>
-        <!--Order List LinesVC-->
+        <!--OrderVC-->
         <scene sceneID="dB7-Mh-iMb">
             <objects>
-                <tableViewController id="0w4-VI-c9u" customClass="OrderListLinesVC" customModule="iPromatSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="0w4-VI-c9u" customClass="OrderVC" customModule="iPromatSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Aia-W3-Maj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="headerLine" textLabel="Rmw-dy-xgx" detailTextLabel="AHL-cj-KT0" style="IBUITableViewCellStyleValue1" id="nlV-DP-TEl" customClass="OrderListLinesCell" customModule="iPromatSwift" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="headerLine" textLabel="Rmw-dy-xgx" detailTextLabel="AHL-cj-KT0" style="IBUITableViewCellStyleValue1" id="nlV-DP-TEl" customClass="OrderCell" customModule="iPromatSwift" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nlV-DP-TEl" id="avx-jB-lwn">
@@ -640,7 +640,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="line" rowHeight="110" id="2h1-8G-WpD" customClass="OrderListLinesCell" customModule="iPromatSwift" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="line" rowHeight="110" id="2h1-8G-WpD" customClass="OrderCell" customModule="iPromatSwift" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="110"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2h1-8G-WpD" id="6yx-xh-lYr">
@@ -718,7 +718,7 @@
                                     <outlet property="quantity" destination="PW1-zK-MFH" id="zjC-dW-G9K"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="confirmOrder" rowHeight="110" id="8cX-9v-iK8" customClass="OrderListLinesCell" customModule="iPromatSwift" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="confirmOrder" rowHeight="110" id="8cX-9v-iK8" customClass="OrderCell" customModule="iPromatSwift" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="182" width="375" height="110"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8cX-9v-iK8" id="3c0-YY-aEr">

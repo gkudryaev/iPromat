@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OrderListLinesVC: UITableViewController {
+class OrderVC: UITableViewController {
     
     var order: Order!
     
@@ -64,7 +64,7 @@ class OrderListLinesVC: UITableViewController {
         
         
         if indexPath.section > 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "line", for: indexPath) as! OrderListLinesCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "line", for: indexPath) as! OrderCell
             
             let line =  order.supplierLines[indexPath.section-1][indexPath.row]
             cell.name.text = line.item.name
@@ -80,7 +80,7 @@ class OrderListLinesVC: UITableViewController {
             return cell
             
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: indexPath.row != 3 ? "headerLine" : "confirmOrder", for: indexPath) as! OrderListLinesCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: indexPath.row != 3 ? "headerLine" : "confirmOrder", for: indexPath) as! OrderCell
             
             switch indexPath.row {
             case 0:
@@ -166,7 +166,7 @@ class OrderListLinesVC: UITableViewController {
         button.setTitle(order.suppliers[section-1], for: .reserved)
         
         if order.suppliers[section-1] != "Поставщик не определен" {
-            button.addTarget(self, action: #selector(OrderListLinesVC.rateSupplier(sender:)), for:.touchUpInside)
+            button.addTarget(self, action: #selector(OrderVC.rateSupplier(sender:)), for:.touchUpInside)
             button.setTitleColor(UIColor.blue, for: .normal)
         } else {
             button.setTitleColor(UIColor.gray, for: .normal)

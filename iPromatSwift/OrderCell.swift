@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OrderListLinesCell: UITableViewCell {
+class OrderCell: UITableViewCell {
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var quantity: UILabel!
@@ -23,7 +23,7 @@ class OrderListLinesCell: UITableViewCell {
         requestOrderStatus()
     }
     
-    var vc: OrderListLinesVC?
+    var vc: OrderVC?
 
     func requestOrderStatus () {
         JsonHelper.request(.orderStatus,
@@ -42,7 +42,7 @@ class OrderListLinesCell: UITableViewCell {
             AppModule.sharedInstance.alertError(error, view: vc!)
         } else {
             vc?.navigationController?.popViewController(animated: true)
-            if let vc = vc?.navigationController?.visibleViewController as? OrderListVC {
+            if let vc = vc?.navigationController?.visibleViewController as? OrdersVC {
                 vc.refresh(json: json)
             }
  

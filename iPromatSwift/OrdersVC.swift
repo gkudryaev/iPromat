@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OrderListVC: UITableViewController {
+class OrdersVC: UITableViewController {
     
     var statuses: [Order.Status] = []
     var statusOrders: [[Order]] = []
@@ -104,7 +104,7 @@ class OrderListVC: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if let vc = segue.destination as? OrderListLinesVC {
+        if let vc = segue.destination as? OrderVC {
             if let indexPath = tableView.indexPathForSelectedRow {
                 vc.order = statusOrders[indexPath.section][indexPath.row]
             }
