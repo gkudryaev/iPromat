@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "OrderListVC.responseOrderList(json : [String : Any]?, error : String?) -&gt; ():OrderListVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ord">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "OrderListVC.numberOfSections(in : UITableView) -&gt; Int:OrderListVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ordArray.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "OrderListLinesVC.tableView(UITableView, numberOfRowsInSection : Int) -&gt; Int:OrderListLinesVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "order.suppliers">
+            </PersistentString>
+            <PersistentString
+               value = "order.supplierLines">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
